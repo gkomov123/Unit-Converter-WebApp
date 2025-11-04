@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <br>
+    <form method="POST">
+        <input type="number" name="value" placeholder="Enter value" required>
+
+         <!-- Category selection -->
+        <select name="category" id="category">
+            <option value="temperature">Temperature</option>
+            <option value="weight">Weight</option>
+            <option value="length">Length</option>
+        </select>
+
+        <!-- Specific conversion selection -->
+        <select name="unit" id="unit">
+            <option value="CtoF">Celsius → Fahrenheit</option>
+            <option value="FtoC">Fahrenheit → Celsius</option>
+            <option value="kgToLb">Kilogram → Pound</option>
+            <option value="lbToKg">Pound → Kilogram</option>
+            <option value="mToFt">Meter → Feet</option>
+            <option value="ftToM">Feet → Meter</option>
+            <option value="mmtToCm">Millimeter → Centimeter</option>
+            <option value="cmtToMm"> Centimeter → Millimeter</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Result: {{ result }} {{ unit_label }}</h2>
+    {% endif %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
